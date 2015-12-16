@@ -1,0 +1,11 @@
+<ul class="flex-container categories-list">
+  <li ng-repeat="item in catalogCtrl.items"
+      product-card-small
+      item="item"
+      class="flex-item"
+  ></li>
+  <li ng-repeat="item in catalogCtrl.emptyItems track by $index"
+      ng-if="catalogCtrl.emptyItems.length"
+      class="flex-item flex-item-empty"
+  ></li>
+</ul>

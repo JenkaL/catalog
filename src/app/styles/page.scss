@@ -1,0 +1,21 @@
+.wrap-page {
+  position: relative;
+  padding-left: 340px;
+  min-height: 500px;
+  height: auto;
+}
+
+.side-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  overflow-y: auto;
+}
+
+.content {
+  width: 100%;
+}
+
+

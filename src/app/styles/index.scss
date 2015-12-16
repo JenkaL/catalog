@@ -1,0 +1,87 @@
+/* Do not remove this comments bellow. It's the markers used by wiredep to inject
+   sass dependencies when defined in the bower.json of your dependencies */
+// bower:scss
+// endbower
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}.wrap-navigation {
+   width: 300px;
+   border: 1px #ccc solid;
+   font-family: Tahoma, Geneva, sans-serif;
+   overflow: hidden;
+   /*transition: width 0.3s ease-out;*/
+   /*po*/
+ }
+
+.wrap-navigation.close {
+  width: 50px;
+}
+
+.wrap-navigation.close .logo,
+.wrap-navigation.close .headers-section {
+  visibility: hidden;
+}
+
+.wrap-navigation.open {
+  width: 300px;
+}
+
+.navigation-list {
+  list-style: none;
+}
+
+.navigation-list-item {
+  overflow: hidden;
+  position: relative;
+
+  cursor: pointer;
+}
+
+.nav-item-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 30px;
+  height: 100%;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-size: auto 30px;
+}
+
+.nav-item-name {
+  padding: 20px 20px 20px 50px;
+  white-space: nowrap;
+}
+
+.logo {
+  padding: 20px 50px 14px;
+  text-align: left;
+}
+
+.logo .logo__line1 {
+  font-size: 18px;
+  color: #333333;
+}
+
+.logo .logo__line2 {
+  display: inline-block;
+  margin-top: -5px;
+  font-size: 22px;
+  color: #999;
+}
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector

@@ -1,0 +1,80 @@
+<!doctype html>
+<html ng-app="mretailerDesktop">
+  <head>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="x-identifier" content="htc-shop"/>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1" name="viewport">
+    <title>mretailerDesktop</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,bower_components}) @@version.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--<div ui-view></div>-->
+
+
+    <button set-navigation-state state="open">
+      Open
+    </button>
+    <button set-navigation-state state="close">
+      Close
+    </button>
+
+    <br/><br/>
+    <button toggle-navigation-state init-state="up" states="up,down">
+      Toggle up/down
+    </button>
+    <br/><br/>
+
+
+
+    <!--<button navigation-state ng-click="setState('open')">-->
+      <!--Open-->
+    <!--</button>-->
+    <!--<button set-navigation-state state="close">-->
+      <!--Close-->
+    <!--</button>-->
+
+    <!--<br/><br/>-->
+    <!--<button navigation-state ng-click="toggleState('open')" init-state="up" states="up,down">-->
+      <!--Toggle up/down-->
+    <!--</button>-->
+    <!--<br/><br/>-->
+
+    <div class="wrap-page">
+      <navigation class="side-bar"></navigation>
+      <div class="content" ui-view></div>
+    </div>
+
+
+    <!-- build:js({.tmp/serve,.tmp/serve/app/partials,src}) @@version.js -->
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+  </body>
+</html>

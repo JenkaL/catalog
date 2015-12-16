@@ -1,0 +1,58 @@
+<div class="wrap-navigation">
+  <div class="logo" ui-sref="home"><span clas="logo__line1">Магазин</span><br/> <span class="logo__line2">аксессуаров</span></div>
+  <ul class="navigation-list">
+    <!--<li><hr color="#ccc" size="1"/></li>-->
+    <!--<li ng-repeat="item in nav.items.notSystemSections" class="navigation-list-item">-->
+      <!--<div class="nav-item-icon" ng-style="item.style"></div>-->
+      <!--<div class="nav-item-name" ng-bind="item.name"></div>-->
+    <!--</li>-->
+    <!--<li><hr color="#ccc" size="1"/></li>-->
+    <!--<li ng-if="nav.items.mainSection" class="navigation-list-item">-->
+      <!--<div class="nav-item-icon" ng-style="nav.items.mainSection.style"></div>-->
+      <!--<div class="nav-item-name" ng-bind="nav.items.mainSection.name"></div>-->
+    <!--</li>-->
+    <!--<li><hr color="#ccc" size="1"/></li>-->
+    <!--<li ng-repeat="item in nav.items.notDeviceCategories" class="navigation-list-item">-->
+      <!--<div class="nav-item-icon" ng-style="item.style"></div>-->
+      <!--<div class="nav-item-name" ng-bind="item.name"></div>-->
+    <!--</li>-->
+    <!--<li><hr color="#ccc" size="1"/></li>-->
+    <!--<li ng-repeat="item in nav.items.deviceCategories" class="navigation-list-item">-->
+      <!--<div class="nav-item-icon" ng-style="item.style"></div>-->
+      <!--<div class="nav-item-name" ng-bind="item.name"></div>-->
+    <!--</li>-->
+
+
+    <li><hr color="#ccc" size="1"/></li>
+    <li ng-repeat="item in nav.items | type: 'section' | isNotSystemSection" ui-sref-active="active" ui-sref="catalog.list({type: item.type, id: item.id})" class="navigation-list-item">
+      <div class="nav-item-icon" ng-style="item.style"></div>
+      <div class="nav-item-name" ng-bind="item.name"></div>
+    </li>
+    <li><hr color="#ccc" size="1"/></li>
+    <li ng-repeat="item in nav.items | type: 'section' | isMainSection" ui-sref-active="active" ui-sref="catalog.list({type: item.type, id: item.id})" class="navigation-list-item">
+      <div class="nav-item-icon" ng-style="item.style"></div>
+      <div class="nav-item-name" ng-bind="item.name"></div>
+    </li>
+    <li><hr color="#ccc" size="1"/></li>
+    <li ng-repeat="item in nav.items | type: 'category' | isNotDevices" ui-sref-active="active" ui-sref="catalog.list({type: item.type, id: item.id})" class="navigation-list-item">
+      <div class="nav-item-icon" ng-style="item.style"></div>
+      <div class="nav-item-name" ng-bind="item.name"></div>
+    </li>
+    <li><hr color="#ccc" size="1"/></li>
+    <li ng-repeat="item in nav.items | type: 'category' | isDevices" ui-sref-active="active" ui-sref="catalog.list({type: item.type, id: item.id})" class="navigation-list-item">
+      <div class="nav-item-icon" ng-style="item.style"></div>
+      <div class="nav-item-name" ng-bind="item.name"></div>
+    </li>
+  </ul>
+  <hr color="#ccc" size="1"/>
+  <ul class="navigation-list">
+    <li class="navigation-list-item" ui-sref-active="active" ui-sref="about">
+      <div class="nav-item-icon"></div>
+      <div class="nav-item-name">О магазине</div>
+    </li>
+    <li class="navigation-list-item" ui-sref-active="active" ui-sref="faq">
+      <div class="nav-item-icon"></div>
+      <div class="nav-item-name">Faq</div>
+    </li>
+  </ul>
+</div>

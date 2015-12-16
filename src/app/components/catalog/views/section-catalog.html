@@ -1,0 +1,16 @@
+<ul class="flex-container sections-list">
+  <li product-card-big
+      item="catalogCtrl.items[0]"
+      class="flex-item"
+  ></li>
+  <li ng-repeat="item in catalogCtrl.items"
+      ng-if="$index > 0"
+      product-card-small
+      item="item"
+      class="flex-item"
+  ></li>
+  <li ng-repeat="item in catalogCtrl.emptyItems track by $index"
+      ng-if="catalogCtrl.emptyItems.length"
+      class="flex-item flex-item-empty"
+  ></li>
+</ul>
