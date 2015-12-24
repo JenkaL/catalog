@@ -1,0 +1,5 @@
+<div class="back" ui-sref="catalog.list({type: backCtrl.backType, id: backCtrl.backId})" m-visible="backCtrl.backButtonTitle">
+  <span ng-if="!!backCtrl.backButtonTitle.length" ng-bind="backCtrl.backButtonTitle"></span>
+
+  <span ng-if="!backCtrl.backButtonTitle.length">Назад в каталог</span>
+</div>

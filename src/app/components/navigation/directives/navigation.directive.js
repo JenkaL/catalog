@@ -14,9 +14,9 @@ export default class NavigationDirective {
     }
 
     link(scope, element) {
-        element[0].addEventListener('changeVisualState', event => {
-            NavigationDirective.changeVisualState(event.detail.state, scope);
-        });
+	    element[0].addEventListener('changeVisualState', event => {
+		    NavigationDirective.changeVisualState(event.detail.state, scope);
+	    });
     }
 
     static changeVisualState(state) {

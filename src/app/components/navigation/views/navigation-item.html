@@ -1,0 +1,7 @@
+<li ui-sref="catalog.list({type: item.type, id: item.id})"
+    class="navigation-list-item"
+    ng-class="{ active: !!item.active }"
+    ng-click="clickHandler({item: item})">
+  <div class="nav-item-icon" ng-style="item.style"></div>
+  <div class="nav-item-name" ng-bind="item.name"></div>
+</li>

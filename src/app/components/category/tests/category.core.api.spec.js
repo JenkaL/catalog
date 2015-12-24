@@ -16,8 +16,8 @@
       module('mCategory');
     });
 
-    beforeEach(inject(function($injector, _NavigationRestangular_){
-      mockRestangular = _NavigationRestangular_;
+    beforeEach(inject(function($injector, _RestangularNavigation_){
+      mockRestangular = _RestangularNavigation_;
       injectorMock = $injector;
 
       $httpBackend = $injector.get('$httpBackend');

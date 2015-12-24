@@ -1,0 +1,10 @@
+<div ng-switch on="product.available">
+    product - {{product.isPreorder}}
+    <remember-button product="product" ng-switch-when="false"></remember-button>
+    <div ng-switch-default>
+        <div ng-switch on="product.isPreorder">
+            <preorder-button product="product" ng-switch-when="true"></preorder-button>
+            <add-to-cart-button product="product" switch-default></add-to-cart-button>
+        </div>
+    </div>
+</div>

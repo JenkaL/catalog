@@ -9,7 +9,7 @@ export default function catalogRouterConfig ($stateProvider) {
           return $stateParams.type;
         }]
       },
-      templateProvider: function($templateCache) {
+      templateProvider: ($templateCache) => {
         'ngInject';
 
         return $templateCache.get('app/components/catalog/views/catalog.html');

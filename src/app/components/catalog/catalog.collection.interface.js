@@ -1,11 +1,11 @@
 import Product from './../products/product.class';
 
 export default class CatalogCollectionInterface {
-  constructor(CatalogConfig, ProductStorage) {
+  constructor(CatalogConfig, ProductsStorage) {
     'ngInject';
 
     this.CatalogConfig = CatalogConfig;
-    this.ProductStorage = ProductStorage;
+    this.ProductsStorage = ProductsStorage;
   }
 
   /**
@@ -72,7 +72,7 @@ export default class CatalogCollectionInterface {
    * @param data (collection items of Product class)
      */
   $save(data) {
-    this.ProductStorage.put(data);
+    this.ProductsStorage.put(data);
   }
 
   /**
@@ -80,7 +80,7 @@ export default class CatalogCollectionInterface {
    * @returns {[]} product's items from storage
      */
   get() {
-    return this.ProductStorage.get();
+    return this.ProductsStorage.get();
   }
 
 

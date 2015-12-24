@@ -1,17 +1,8 @@
-export default class SectionCoreAPI {
-  constructor(NavigationRestangular, RestangularWithContext) {
+import CoreAPI from './../../base/base-classes/navigation/base.navigation.core.api.class.js';
+
+export default class SectionCoreAPI extends CoreAPI {
+  constructor(RestangularNavigation, RestangularWithContext) {
     'ngInject';
-
-    this.RestangularWithContext = RestangularWithContext;
-
-    this.sectionAPI = NavigationRestangular.all('sections');
-  }
-
-  query() {
-    return this.sectionAPI.getList();
-  }
-
-  queryItems(sectionId) {
-    return this.RestangularWithContext.one('section', sectionId).getList('products');
+    super(RestangularNavigation, RestangularWithContext, 'sections', 'section');
   }
 }

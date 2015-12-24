@@ -1,26 +1,58 @@
-import Utils from '../../base/utils/utils.js';
+import Utils from './../../base/utils/utils.js';
+import Storage from './../../base/base-classes/base.storage.class.js';
+import UtilsValidation from './../../base/utils/utils.validate';
 
-export default class ProductStorage {
-  constructor() {
-    this._productsDB = [];
-  }
+/**
+ * storage of collection of object Product's class
+ */
+/**
+ * TODO:
+ * putById - replace element by id
+ * getById - get element by id
+ * ???
+ */
 
-  get() {
-    return this._productsDB;
+export default class ProductsStorage extends Storage {
+  constructor(preorderSectionId) {
+    'ngInject';
+
+    super();
+    this.preorderSectionId = preorderSectionId;
   }
 
   put(data) {
-    this._productsDB = data;
+    super.put(data);
+    this.setPreorderFlagToData();
   }
 
-  remove() {
-    this._productsDB = [];
+  getItemById(id) {
+    return Utils.getItemByProp(this.data, 'id', id);
   }
 
-  /**
-   * TODO:
-   * putById - replace element by id
-   * getById - get element by id
-   * ???
-   */
+  getIndexOfItem(item) {
+    return Utils.getIndexOfItem(this.data, item);
+  }
+
+  putItem(item) {
+    let product = this.getItemById(item.id);
+
+    if (!UtilsValidation.isEmptyObject(product)) {
+      this.replaceItem(product, item);
+      return;
+    }
+
+    return this.data.push(item);
+  }
+
+  replaceItem(foundItem, replacedItem) {
+    let foundIndex = this.getIndexOfItem(foundItem);
+
+    if (~foundIndex) {
+      this.data.splice(foundIndex, 1, replacedItem);
+    }
+  }
+
+  setPreorderFlagToData() {
+    this.data.forEach(item => item.setPreorderFlag(this.preorderSectionId));
+  }
 }

@@ -1,9 +1,11 @@
 <ul class="flex-container sections-list">
   <li product-card-big
+      ui-sref="product({ productId: catalogCtrl.items[0].id, section: catalogCtrl.sectionId })"
       item="catalogCtrl.items[0]"
       class="flex-item"
   ></li>
   <li ng-repeat="item in catalogCtrl.items"
+      ui-sref="product({ productId: item.id, section: catalogCtrl.sectionId })"
       ng-if="$index > 0"
       product-card-small
       item="item"

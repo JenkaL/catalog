@@ -7,7 +7,7 @@
         lang: 'ru'
       },
       apiPathMock = '/api/v3/',
-      mockInjector, mockRestangular, $httpBackend, mockRestangularWithContext, mockNavigationRestangular;
+      mockInjector, mockRestangular, $httpBackend, mockRestangularWithContext, mockRestangularNavigation;
 
     beforeEach(module('mApiCore'));
 
@@ -34,11 +34,11 @@
         });
       });
 
-      beforeEach(inject(function($injector, _Restangular_, _RestangularWithContext_, _NavigationRestangular_) {
+      beforeEach(inject(function($injector, _Restangular_, _RestangularWithContext_, _RestangularNavigation_) {
         mockInjector = $injector;
         mockRestangular = _Restangular_;
         mockRestangularWithContext = _RestangularWithContext_;
-        mockNavigationRestangular = _NavigationRestangular_;
+        mockRestangularNavigation = _RestangularNavigation_;
 
         $httpBackend = $injector.get('$httpBackend');
         $httpBackend.when('GET', '/api/v3/sections?country=RU&device_id=-1000&lang=ru').respond([]);
@@ -49,9 +49,9 @@
         $httpBackend.verifyNoOutstandingRequest();
       });
 
-      it('should defined RestangularWithContext and NavigationRestangular', function() {
+      it('should defined RestangularWithContext and RestangularNavigation', function() {
         expect(mockRestangularWithContext).toBeDefined();
-        expect(mockNavigationRestangular).toBeDefined();
+        expect(mockRestangularNavigation).toBeDefined();
       });
 
       it('should send through RestangularWithContext with get params', function() {
@@ -62,16 +62,16 @@
         $httpBackend.flush();
       });
 
-      it('should send through NavigationRestangular with get params', function() {
-        var sectionAPI = mockNavigationRestangular.all('sections');
+      it('should send through RestangularNavigation with get params', function() {
+        var sectionAPI = mockRestangularNavigation.all('sections');
 
         $httpBackend.expectGET('/api/v3/sections?country=RU&device_id=-1000&lang=ru');
         sectionAPI.getList();
         $httpBackend.flush();
       });
 
-      it('should NavigationRestangular transform response', function() {
-        var sectionAPI = mockNavigationRestangular.all('sections');
+      it('should RestangularNavigation transform response', function() {
+        var sectionAPI = mockRestangularNavigation.all('sections');
 
         sectionAPI.getList().then(function(response) {
           expect(response).toEqual(sectionRestangularProcessingData);

@@ -9,6 +9,7 @@ import NavigationCollectionInterface from './navigation.collection.interface';
 import NavigationPostProcessingData from './navigation.postprocessing';
 
 import NavigationDirective from './directives/navigation.directive';
+import NavigationItemDirective from './directives/navigation.item.directive';
 import SetNavigationStateDirective from './directives/navigation.set.state.directive';
 import ToggleNavigationStateDirective from './directives/navigation.toggle.state.directive';
 
@@ -23,6 +24,7 @@ let navigationModule = angular
                           .directive('toggleNavigationState', ToggleNavigationStateDirective)
                           .directive('setNavigationState', SetNavigationStateDirective)
                           .directive('navigation', $templateCache => new NavigationDirective($templateCache)) //TODO: without DI
+                          .directive('navItem', $templateCache => new NavigationItemDirective($templateCache))
 
                           .filter('type', filterByType);
 

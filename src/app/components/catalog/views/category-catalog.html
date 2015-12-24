@@ -1,5 +1,6 @@
 <ul class="flex-container categories-list">
   <li ng-repeat="item in catalogCtrl.items"
+      ui-sref="product({ productId: item.id, category: item['category_id'] })"
       product-card-small
       item="item"
       class="flex-item"

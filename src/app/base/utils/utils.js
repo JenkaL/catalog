@@ -39,6 +39,31 @@ class UtilsClass {
     return returnPropertyLocal;
   }
 
+  getItemByProp(arr, prop, value) {
+    let returnItem = {},
+        i = 0;
+
+    arr.forEach(item => {
+      if(item[prop] === value) {
+        returnItem = item;
+      }
+    });
+
+    return returnItem;
+  }
+
+  getIndexOfItem(arr, obj) {
+    let i = 0;
+
+    for (i = 0; i < arr.length; i++ ) {
+        if (angular.equals(arr[i], obj)) {
+          return i;
+        }
+    }
+
+    return -1;
+  }
+
   extendDeferred($q) {
     let objDefer = { deferred: $q.defer() };
 
@@ -53,16 +78,6 @@ class UtilsClass {
         detail: detail
       }));
     }
-  }
-
-  isEmptyObject(obj) {
-    for (let k in obj) {
-      if (obj.hasOwnProperty(k)) {
-        return false;
-      }
-    }
-
-    return true;
   }
 }
 

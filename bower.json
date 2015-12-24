@@ -4,18 +4,20 @@
   "dependencies": {
     "angular": "~1.4.0",
     "angular-animate": "~1.4.0",
-    "restangular": "~1.5.1",
-    "lodash": "~3.10.1",
     "angular-sanitize": "~1.4.0",
     "angular-touch": "~1.4.0",
     "angular-ui-router": "~0.2.15",
     "animate.css": "~3.3.0",
-    "popmotion": "~3.4.1"
+    "lodash": "~3.10.1",
+    "ngstorage": "~0.3.10",
+    "popmotion": "~3.4.1",
+    "restangular": "~1.5.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0",
     "core.js": "~1.2.6",
     "lodash": "~3.10.1",
+    "ngstorage": "~0.3.10",
     "popmotion": "~3.4.1",
     "restangular": "~1.5.1"
   },

@@ -48,6 +48,10 @@ ul, li {
   cursor: pointer;
 }
 
+.navigation-list-item.active {
+  background-color: #f1f1f1;
+}
+
 .nav-item-icon {
   position: absolute;
   top: 0;

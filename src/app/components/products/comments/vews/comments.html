@@ -1,0 +1,28 @@
+<div>
+    <a class="btn btn-small pull-right comment-btn" ui-sref="comments.add(productId: commentsCtrl.productId)">+</a>
+    <h3 translate>Комментарии</h3>
+    <lazy-viewing error="errorComments" start-flag="sendCommentsRequest" lazy-data="comments" template-url="/content/comments"></lazy-viewing>
+</div>
+
+<div>
+    <ul class="comment-list" ng-hide="startFlag">
+        <li ng-if="items.length == 0 || error" class="comment-list-item nocomments" translate>
+            Нет комментариев
+        </li>
+        <li ng-repeat="item in visibleItems track by $index" class="comment-list-item">
+            <div class="date" ng-bind="item.created_at | date:'dd.MM.yyyy HH:mm'"></div>
+            <div class="name" ng-bind="item.name"></div>
+            <span ng-if="!(item.answer && item.answer.length)" ng-bind-with-tags="item.body" tags="link"></span>
+            <span ng-if="item.answer && item.answer.length" ng-bind="item.body"></span>
+            <div class="children-comment" ng-show="item.answer">
+                <div class="date" ng-bind="item.answer.created_at | date:'dd.MM.yyyy HH:mm'"></div>
+                <div class="name icon icon-children-comment" ng-bind="item.answer.name"></div>
+                <span ng-bind-with-tags="item.answer.body" tags="link"></span>
+            </div>
+        </li>
+    </ul>
+
+    <div class="loader lazy-preloader lazy-preloader_small-height  lazy-preloader-without-border" ng-show="startFlag"><i class="loading-spinner icon icon-spinner"></i></div>
+    <div class="loader lazy-preloader lazy-preloader-without-border" ng-hide="startFlag || completed || items.length == 0 || error"><i class="loading-spinner icon icon-spinner"></i></div>
+    <br  ng-if="items.length == 0" />
+</div>

@@ -1,4 +1,4 @@
-export default function NavigationRestangular(RestangularWithContext, NavigationPostProcessingData) {
+export default function RestangularNavigation(RestangularWithContext, NavigationPostProcessingData) {
   'ngInject';
 
   return RestangularWithContext.withConfig(function(RestangularConfigurer) {

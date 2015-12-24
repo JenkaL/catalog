@@ -9,34 +9,34 @@
      * and defined service
      */
     describe('Catalog module tested storage method', function() {
-        var injectorMock, CatalogConfig, CatalogCollectionInterface, ProductStorage;
+        var injectorMock, CatalogConfig, CatalogCollectionInterface, ProductsStorage;
 
         beforeEach(module('ui.router'));
         beforeEach(module('mNavigation'));
         beforeEach(module('mCatalog'));
 
-        beforeEach(inject(function($injector, _CatalogConfig_, _CatalogCollectionInterface_, _ProductStorage_) {
+        beforeEach(inject(function($injector, _CatalogConfig_, _CatalogCollectionInterface_, _ProductsStorage_) {
             injectorMock = $injector;
             CatalogConfig = _CatalogConfig_;
             CatalogCollectionInterface = _CatalogCollectionInterface_;
-            ProductStorage = _ProductStorage_;
+            ProductsStorage = _ProductsStorage_;
 
-            spyOn(ProductStorage, 'get');
-            spyOn(ProductStorage, 'put');
+            spyOn(ProductsStorage, 'get');
+            spyOn(ProductsStorage, 'put');
         }));
 
         it('should CatalogCollectionInterface defined in catalog module', function() {
             expect(CatalogCollectionInterface).toBeDefined();
         });
 
-        it('should ProductStorage call get', function() {
+        it('should ProductsStorage call get', function() {
             CatalogCollectionInterface.get();
-            expect(ProductStorage.get).toHaveBeenCalled();
+            expect(ProductsStorage.get).toHaveBeenCalled();
         });
 
-        it('should ProductStorage call get', function() {
+        it('should ProductsStorage call get', function() {
             CatalogCollectionInterface.$save(productsData.productsSection);
-            expect(ProductStorage.put).toHaveBeenCalled();
+            expect(ProductsStorage.put).toHaveBeenCalled();
         });
     });
 
@@ -46,15 +46,15 @@
      */
     describe('Catalog module tested controller method', function() {
         var CatalogCollectionInterface, CategoryCoreAPI, CategoryStorage,
-            SectionCoreAPI, SectionStorage, ProductStorage;
+            SectionCoreAPI, SectionStorage, ProductsStorage;
 
         beforeEach(module('ui.router'));
         beforeEach(module('mNavigation'));
         beforeEach(module('mCatalog'));
 
         beforeEach(inject(function( _CatalogCollectionInterface_, _CategoryCoreAPI_, _CategoryStorage_,
-                                   _SectionCoreAPI_, _SectionStorage_, _ProductStorage_) {
-            ProductStorage = _ProductStorage_;
+                                   _SectionCoreAPI_, _SectionStorage_, _ProductsStorage_) {
+            ProductsStorage = _ProductsStorage_;
             CategoryCoreAPI = _CategoryCoreAPI_;
             SectionCoreAPI = _SectionCoreAPI_;
             CategoryStorage = _CategoryStorage_;
@@ -107,15 +107,15 @@
      */
     describe('Catalog module tested controller method', function() {
         var expectProductsCategory, expectProductsSection, $httpBackend, CatalogCollectionInterface, CategoryCoreAPI, CategoryStorage,
-            SectionCoreAPI, SectionStorage, ProductStorage;
+            SectionCoreAPI, SectionStorage, ProductsStorage;
 
         beforeEach(module('ui.router'));
         beforeEach(module('mNavigation'));
         beforeEach(module('mCatalog'));
 
         beforeEach(inject(function($injector, _$httpBackend_, _CatalogConfig_, _CatalogCollectionInterface_, _CategoryCoreAPI_, _CategoryStorage_,
-                                   _SectionCoreAPI_, _SectionStorage_, _ProductStorage_) {
-            ProductStorage = _ProductStorage_;
+                                   _SectionCoreAPI_, _SectionStorage_, _ProductsStorage_) {
+            ProductsStorage = _ProductsStorage_;
             CategoryCoreAPI = _CategoryCoreAPI_;
             SectionCoreAPI = _SectionCoreAPI_;
             CategoryStorage = _CategoryStorage_;
